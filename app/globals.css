@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  .volt {
+    --background: 96 18% 97%;
+    --foreground: 90 12% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 90 12% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 90 12% 9%;
+    --primary: 73 74% 34%;
+    --primary-foreground: 90 18% 8%;
+    --secondary: 84 20% 90%;
+    --secondary-foreground: 90 12% 12%;
+    --muted: 84 18% 91%;
+    --muted-foreground: 90 8% 38%;
+    --accent: 39 100% 52%;
+    --accent-foreground: 90 18% 8%;
+    --destructive: 0 75% 56%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 82 16% 83%;
+    --input: 82 16% 83%;
+    --ring: 73 74% 34%;
+  }
+
+  .frost {
+    --background: 42 36% 96%;
+    --foreground: 95 10% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 95 10% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 95 10% 12%;
+    --primary: 31 100% 54%;
+    --primary-foreground: 45 100% 98%;
+    --secondary: 84 18% 88%;
+    --secondary-foreground: 95 10% 14%;
+    --muted: 72 18% 90%;
+    --muted-foreground: 90 8% 42%;
+    --accent: 70 100% 48%;
+    --accent-foreground: 95 18% 8%;
+    --destructive: 0 75% 56%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 72 16% 82%;
+    --input: 72 16% 82%;
+    --ring: 31 100% 54%;
+  }
+
+  .ember {
+    --background: 32 28% 7%;
+    --foreground: 45 70% 94%;
+    --card: 34 24% 11%;
+    --card-foreground: 45 70% 94%;
+    --popover: 34 24% 11%;
+    --popover-foreground: 45 70% 94%;
+    --primary: 18 100% 60%;
+    --primary-foreground: 32 28% 7%;
+    --secondary: 34 20% 17%;
+    --secondary-foreground: 45 70% 94%;
+    --muted: 34 16% 18%;
+    --muted-foreground: 43 18% 72%;
+    --accent: 70 100% 58%;
+    --accent-foreground: 32 28% 7%;
+    --destructive: 0 68% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 35 18% 24%;
+    --input: 35 18% 24%;
+    --ring: 18 100% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+}
+
+@layer utilities {
+  .subtle-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.45) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.45) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+
+  .neon-stage {
+    background:
+      linear-gradient(115deg, rgba(215, 255, 61, 0.2), transparent 31%),
+      linear-gradient(245deg, rgba(255, 176, 0, 0.18), transparent 34%),
+      linear-gradient(25deg, rgba(255, 90, 54, 0.13), transparent 42%),
+      linear-gradient(135deg, #060805 0%, #10140a 48%, #15130a 100%);
+  }
+
+  .neon-grid {
+    background-image:
+      linear-gradient(to right, rgba(215, 255, 61, 0.09) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 176, 0, 0.07) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.35), transparent);
+  }
+
+  .neon-panel {
+    background:
+      linear-gradient(145deg, rgba(14, 18, 10, 0.9), rgba(24, 24, 12, 0.7)),
+      linear-gradient(135deg, rgba(215, 255, 61, 0.13), rgba(255, 176, 0, 0.11));
+    border: 1px solid rgba(230, 255, 128, 0.22);
+    box-shadow:
+      0 24px 80px rgba(0, 0, 0, 0.45),
+      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+      0 0 36px rgba(215, 255, 61, 0.1);
+    backdrop-filter: blur(24px);
+  }
+
+  .neon-chip {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 0 24px rgba(215, 255, 61, 0.08) inset;
+  }
+
+  .neon-text {
+    color: #f8fbff;
+    text-shadow: 0 0 34px rgba(215, 255, 61, 0.22);
+  }
+
+  .neon-line {
+    background: linear-gradient(90deg, #d7ff3d, #ffb000, #ff5a36);
+  }
+
+  .glass-panel {
+    @apply border shadow-panel backdrop-blur-xl;
+    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .ember .glass-panel,
+  .volt .glass-panel {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: hsl(var(--card) / 0.72);
+  }
+}
